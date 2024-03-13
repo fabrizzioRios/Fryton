@@ -6,24 +6,24 @@ export function TopMenu() {
     const { pathname } = useLocation();
 
   return (
-    <Menu fixed='top' className='top_menu_admin'>
+    <Menu fixed='top' className='top_menu_admin' borderless>
       <Menu.Item className='top_menu_admin_logo'>
-        <p>Fryton</p>
+          <Icon name='python'/>Fryton
       </Menu.Item>
         <Menu.Item as={Link} to={'/fryton'} active={pathname === '/fryton'}>
             <Icon name='home'/>Home
         </Menu.Item>
-        <Menu.Item as={Link} to={'/fryton/about'} active={pathname === '/fryton/users'}>
-            <Icon name='users'/>About
+        <Menu.Item as={Link} to={'/fryton/about'} active={pathname === '/fryton/about'}>
+            <Icon name='info'/>About
         </Menu.Item>
         <Menu.Item as={Link} to={'/fryton/run'} active={pathname === '/fryton/run'}>
-            <Icon name='building'/>Run
+            <Icon name='code'/>Run
         </Menu.Item>
         <Menu.Item as={Link} to={'/fryton/learn'} active={pathname === '/fryton/learn'}>
-            <Icon name='hdd outline'/>Learn
+            <Icon name='book'/>Learn
         </Menu.Item>
-        <Menu.Item as={Link} to={'https://github.com/fabrizzioRios'} active={pathname === 'https://github.com/fabrizzioRios'}>
-            <Icon name='hdd outline'/>Repository
+        <Menu.Item as={Link} to={'https://github.com/fabrizzioRios/Fryton'} active={pathname === 'https://github.com/fabrizzioRios/Fryton'}>
+            <Icon name='github'/>Repository
         </Menu.Item>
     </Menu>
   )

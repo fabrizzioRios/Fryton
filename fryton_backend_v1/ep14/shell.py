@@ -5,12 +5,14 @@ class Menu:
 	@classmethod
 	def main(cls, text):
 		if text.strip() == "":
-			pass
+			return  # Exit the method if the text is empty
+
 		result, error = basic.run('<stdin>', text)
+
 		if error:
-			return error.as_string()
+			print(error.as_string())
 		elif result:
 			if len(result.elements) == 1:
-				return repr(result.elements[0])
+				print(repr(result.elements[0]))
 			else:
-				return repr(result)
+				print(repr(result))

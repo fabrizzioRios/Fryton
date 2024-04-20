@@ -22,6 +22,11 @@ const routesUser = [
         layout: AdminLayout,
         component: LearnCode,
     },
+    {
+        path: "/fryton/learn/*",
+        layout: AdminLayout,
+        component: LearnCode,
+    },
 ];
 
 export default routesUser;

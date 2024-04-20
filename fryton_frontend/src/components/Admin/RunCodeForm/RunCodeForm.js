@@ -1,35 +1,38 @@
-import {Button, Form} from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
 import { useFormik } from 'formik';
-import './RunCodeForm.scss'
-import {runCodeApi} from "../../../api/code";
+import './RunCodeForm.scss';
+import { runCodeApi } from "../../../api/code";
 import * as Yup from "yup";
+import { Editor } from "@monaco-editor/react";
+
 export function RunCodeForm() {
 
     const formik = useFormik({
         initialValues: InitialValues(),
-        validationSchema: Yup.object(newValidationSchema()),
+        validationSchema: newValidationSchema(),
         validateOnChange: false,
-        onSubmit: async (formValue) =>{
-            console.log(formValue)
+        onSubmit: async (formValue) => {
+            console.log(formValue);
             try {
-                const response = await runCodeApi(formValue)
-                console.log(response)
-                window.alert(response.data)
+                const response = await runCodeApi(formValue);
+                console.log(response);
+                window.alert(response.data);
             } catch (error) {
-                console.log(formValue)
+                console.log(formValue);
             }
         }
-    })
+    });
+
     return (
-        <Form className={"code_content_form"} onSubmit={formik.handleSubmit}>
-            <Form.TextArea
-                name={"code_content"}
-                placeholder={"Write your code here"}
-                value={formik.values.code_content}
-                onChange={formik.handleChange}
-                error={formik.errors.code_content}
+        <Form onSubmit={formik.handleSubmit}>
+            <Button type="submit">Run</Button>
+            <Editor
+                height="90vh"
+                defaultValue="Write your code here"
+                theme="vs-dark"
+                language="fryton"
+                onChange={(value) => formik.setFieldValue('code_content', value)}
             />
-            <Button type={"submit"} content={"Run"} primary fluid/>
         </Form>
     );
 }
@@ -41,8 +44,8 @@ function InitialValues() {
 }
 
 function newValidationSchema() {
-    return {
+    return Yup.object().shape({
         code_content: Yup.string(),
-    }
+    });
 }
 

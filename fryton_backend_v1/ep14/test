@@ -1,0 +1,12 @@
+# Fryton uses a special function to create prints "sH()"
+sH("Hello world! :]")
+sH("Im a dummie :^[")
+
+# You may also want to use VUELTO as a similar to return
+VUELTO(1)
+
+# Prepare yourself, this is just the beginning :)
+
+
+
+

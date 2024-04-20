@@ -11,8 +11,14 @@ class Code(BaseModel):
 
 @api.post("/send-code")
 def main(request, code: Code):
-
-    result = Menu.main(code.code_content)
-    print((type(result)))
-    print(result)
+    f = open("ep14/example.myopl", "w")
+    f.write('')
+    f.write(code.code_content)
+    f.close()
+    cleaned_code_content = 'RUN("ep14/example.myopl")'
+    Menu.main(cleaned_code_content)
+    result = open("read.txt", "r").read()
+    clean_txt = open("read.txt", "w")
+    clean_txt.write('')
     return result
+

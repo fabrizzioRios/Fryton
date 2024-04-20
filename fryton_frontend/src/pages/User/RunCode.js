@@ -1,5 +1,5 @@
 import React from 'react'
-import {RunCodeForm} from "../../components/Admin/RunCodeForm/RunCodeForm";
+import {RunCodeForm} from "../../components/Admin";
 
 export function RunCode() {
     return (

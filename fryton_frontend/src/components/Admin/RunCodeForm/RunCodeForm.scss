@@ -1,6 +1,9 @@
-.add_edit_user_form {
 
-  .ui.primary.button {
-    margin-top: 50px;
+.code_content_form {
+  padding: 0;
+  margin: 0;
+  &_text_area {
+    font-family: monospace, monospace;
   }
 }
+
